@@ -1,3 +1,3 @@
 ## From Petals to Premiums: Practical GLM Applications in R
 
-**Abstract**: 
+**Abstract**: In revisiting the fundamentals of R programming, this project explores the versatility of generalized linear models (GLMs) through their application to two contrasting datasets. The first employs logistic regression on the *iris* dataset to quantify the probability of a specimen belonging to the versicolor species from its morphological characteristics, assessing the robustness of the model through Chi-squared comparisons. Building on this foundation, the same analytical framework is extended to a medical insurance dataset, where GLMs are used to predict individual premiums from demographic and health-related indicators. This dual approach highlights the adaptability of GLMs across scientific and applied domains, bridging statistical insight with practical data interpretation.
