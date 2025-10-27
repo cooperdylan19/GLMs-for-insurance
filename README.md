@@ -8,8 +8,18 @@
 ### Binomial GLM Predictions for Versicolour
 
 <p align="justify">
-This script constructs and evaluates a series of Generalised Linear Models (GLMs) to predict the likelihood of an iris specimen belonging to the versicolour species based on its morphological features. The dataset is first modified to express versicolour as a binary variable, after which several binomial GLMs are fitted with increasing model complexity. Statistical summaries and model comparisons are generated to assess predictor significance and overall fit. Predicted probabilities with 95% confidence intervals are then visualised across key variables, arranged into a composite grid of plots. The resulting figure is shown below.
-</p>
+This script (GLMsinR_flowers) constructs and evaluates a series of GLMs to predict the likelihood of an iris specimen belonging to the versicolour species based on its morphological features. The dataset is first modified to express versicolour as a binary variable, after which 3 binomial GLMs are fitted with increasing model complexity. 
+
+**Model 1** *m_base*: contains only an intercept and no predictor variables. <br />
+**Model 2** *m*: introduces Sepal Length and Sepal Width as predictors. <br />
+**Model 3** *m2*: incorporates all four morphological features of the iris dataset: sepal and petal length and width.
+  
+| Model | Residual Deviance | ΔDeviance | p-value | Interpretation |
+|:------|:-----------------:|:---------:|:-------:|:---------------|
+| **m_base** | 190.95 | — | — | Baseline model with no predictors |
+| **m** | 151.65 | 39.30 | < 0.001 | Significant improvement over baseline |
+| **m2** | 145.07 | 6.58 | 0.037 | Further significant improvement; best overall model |
+
 
 ![fig1](/iris_glm_plots.png)
 
