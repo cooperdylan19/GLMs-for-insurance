@@ -57,6 +57,6 @@ title_grob <- cowplot::ggdraw() +
 
 final_plot <- cowplot::plot_grid(title_grob, grid, ncol = 1, rel_heights = c(0.08, 1)) # title above grid
 
-ggsave("iris_glm_plots.pdf", plot = final_plot) #save plots as pdf
+ggsave("iris_glm_plots.png", plot = final_plot) #save plots as pdf
 
 
