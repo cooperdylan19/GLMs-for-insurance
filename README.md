@@ -11,4 +11,4 @@
 This script constructs and evaluates a series of Generalised Linear Models (GLMs) to predict the likelihood of an iris specimen belonging to the versicolour species based on its morphological features. The dataset is first modified to express versicolour as a binary variable, after which several binomial GLMs are fitted with increasing model complexity. Statistical summaries and model comparisons are generated to assess predictor significance and overall fit. Predicted probabilities with 95% confidence intervals are then visualised across key variables, arranged into a composite grid of plots. The resulting figure is shown below.
 </p>
 
-![fig1](/iris_glm_plots.pdf)
+![fig1](/iris_glm_plots.png)
