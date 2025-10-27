@@ -20,6 +20,7 @@ This script (GLMsinR_flowers) constructs and evaluates a series of GLMs to predi
 | **m** | 151.65 | 39.30 | < 0.001 | Significant improvement over baseline |
 | **m2** | 145.07 | 6.58 | 0.037 | Further significant improvement; best overall model |
 
+![figA](iris_glm_plots.png)
 
 This code produces a set of predicted probability plots showing how each morphological feature influences the likelihood that an iris specimen belongs to the versicolour species, according to the fitted binomial GLM (m2 - model with best accuracy). In each plot, the x-axis represents the observed range of that predictor, while the y-axis shows the predicted probability of versicolour membership estimated by the model. The magenta line indicates the model’s fitted relationship, and the shaded band around it shows the 95% confidence interval.
 
