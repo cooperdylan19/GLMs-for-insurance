@@ -12,3 +12,10 @@ This script constructs and evaluates a series of Generalised Linear Models (GLMs
 </p>
 
 ![fig1](/iris_glm_plots.png)
+
+
+### Tweedie GLM Predictions for medical premiums
+
+#### Basic model (no variable interactions)
+
+#### Advanced model (variable interactions)
