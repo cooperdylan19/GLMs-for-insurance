@@ -8,12 +8,13 @@
 ### Binomial GLM Predictions for Versicolour
 
 <p align="justify">
-This script (GLMsinR_flowers) constructs and evaluates a series of GLMs to predict the likelihood of an iris specimen belonging to the versicolour species based on its morphological features. The dataset is first modified to express versicolour as a binary variable, after which 3 binomial GLMs are fitted with increasing model complexity. 
+This script (GLMsinR_flowers) constructs and evaluates a series of GLMs to predict the likelihood of an iris specimen belonging to the versicolour species based on its morphological features. The dataset is first modified to express versicolour as a binary variable, after which 3 binomial GLMs are fitted with increasing model complexity.
+</p>
 
 **Model 1** *m_base*: contains only an intercept and no predictor variables. <br />
 **Model 2** *m*: introduces Sepal Length and Sepal Width as predictors. <br />
 **Model 3** *m2*: incorporates all four morphological features of the iris dataset: sepal and petal length and width.
-  
+
 | Model | Residual Deviance | ΔDeviance | p-value | Interpretation |
 |:------|:-----------------:|:---------:|:-------:|:---------------|
 | **m_base** | 190.95 | — | — | Baseline model with no predictors |
@@ -22,7 +23,9 @@ This script (GLMsinR_flowers) constructs and evaluates a series of GLMs to predi
 
 ![figA](iris_glm_plots.png)
 
+<p align="justify">
 This code produces a set of predicted probability plots showing how each morphological feature influences the likelihood that an iris specimen belongs to the versicolour species, according to the fitted binomial GLM (m2 - model with best accuracy). In each plot, the horizontal axis represents the observed range of that predictor, while the vertical axis shows the predicted probability of versicolour membership estimated by the model. The green line indicates the model’s fitted relationship, and the shaded band around it shows the 95% confidence interval.
+</p>
 
 
 ### Tweedie GLM Predictions for medical premiums
