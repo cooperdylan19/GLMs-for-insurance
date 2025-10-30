@@ -32,4 +32,12 @@ This code produces a set of predicted probability plots showing how each morphol
 
 #### Basic model (no variable interactions)
 
+This script (GLMsinR_insruance) follows the same core ideas used in the previous section. The binomial distribution is switched to a Tweedie distribuion, and additional care is taken when considering categorical variables (sex, smoker, region). 80% of the dataset is used to train the model, with the remaining 20% used for testing. Accuracy is measured using RMSE and MAE.
+
+![figB](insurance_glm_plots.png)
+
 #### Advanced model (variable interactions)
+
+To improve the basic model, a new model was implemented. This model used a grid search to iterate through different p values, and considered variable interactions. Interaction terms between smoker status and age as well as smoker status and BMI, and a quadratic term was introduced to capture potential non-linear effects of BMI on medical charges. The new model showed improvements in both RMSE and MAE.
+
+![figC](baseline_vs_improved_clean.png)
