@@ -23,6 +23,14 @@ d$sex    <- factor(d$sex)
 d$smoker <- factor(d$smoker)
 d$region <- factor(d$region) # numeric codes
 
+d$region <- dplyr::recode(
+  d$region,
+  "southeast" = "SE",
+  "southwest" = "SW",
+  "northeast" = "NE",
+  "northwest" = "NW"
+)
+
 head(d)
 
 # full-data models (kept for comparison / plots)
@@ -106,6 +114,7 @@ final_plot <- cowplot::plot_grid(title_grob, grid, ncol = 1, rel_heights = c(0.0
 
 ggsave("insurance_glm_plots.png", plot = final_plot) # save plots as png
 
+
 # --- IMPROVE MODEL ---
 
 options(contrasts = c("contr.treatment", "contr.poly")) # deals with categorical vars
@@ -181,9 +190,18 @@ ggsave("improved_predictedVSactualPremiums.png",
        plot = p_scatter_best, width = 7, height = 5, units = "in")
 
 
-# PLOT A with C ---
+# --- PLOT A with C (synchronized y-axis) ---
+
+# find global y range across both models
+y_min <- min(c(results$predicted, results_best$predicted))
+y_max <- max(c(results$predicted, results_best$predicted))
+
+# optionally extend a little for padding
+y_pad <- 0.05 * (y_max - y_min)
+y_limits <- c(y_min - y_pad, y_max + y_pad)
 
 p_left_annotated <- p_scatter +
+  coord_cartesian(ylim = y_limits) +  # fix same y range
   labs(title = NULL) +
   annotate("text",
            x = Inf, y = -Inf,
@@ -195,6 +213,7 @@ p_left_annotated <- p_scatter +
   theme(plot.margin = margin(10, 20, 10, 10))
 
 p_right_annotated <- p_scatter_best +
+  coord_cartesian(ylim = y_limits) +  # apply same range
   labs(title = NULL) +
   annotate("text",
            x = Inf, y = -Inf,
@@ -207,7 +226,7 @@ p_right_annotated <- p_scatter_best +
 
 comparison_annotated <- cowplot::plot_grid(
   p_left_annotated, p_right_annotated,
-  labels = NULL,            
+  labels = NULL,
   ncol = 2,
   align = "hv",
   rel_widths = c(1, 1)

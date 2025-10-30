@@ -36,27 +36,18 @@ m2 <- glm(versicolor ~ Sepal.Length + Sepal.Width + Petal.Length + Petal.Width, 
 anova(m_base, m, m2, test="Chisq") # stats to find best model
 tab_model(m_base, m, m2)
 
-
 # --- PLOTS ---
 p_list <- sjPlot::plot_model(
   m2,
   type = "pred",
-  title = "",   # no individual titles   
-  colors = "#ff00cc",
+  title = "",        # removes individual plot titles
+  colors = "#55ff00",
   ci.lvl = 0.95
 )
 
-grid <- cowplot::plot_grid(plotlist = p_list, ncol = 2) # plots in grid
+grid <- cowplot::plot_grid(plotlist = p_list, ncol = 2) # combine plots in grid
 
-title_grob <- cowplot::ggdraw() +
-  cowplot::draw_label(
-    "GLM Predicted Probabilities for Iris Versicolor", # overall title
-    fontface = "bold",
-    x = 0.5, hjust = 0.5, vjust = 1, size = 14
-  )
+# remove title section entirely
+final_plot <- grid
 
-final_plot <- cowplot::plot_grid(title_grob, grid, ncol = 1, rel_heights = c(0.08, 1)) # title above grid
-
-ggsave("iris_glm_plots.png", plot = final_plot) #save plots as pdf
-
-
+ggsave("iris_glm_plots.png", plot = final_plot) # save plot
